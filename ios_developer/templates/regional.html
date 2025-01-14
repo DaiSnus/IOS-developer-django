@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<h2 class="pb-4 text-center">География ios-разработчиков</h2>
+{% for data in region_data %}
+<div class="pricing-header p-3 pb-md-4 mx-auto text-center">
+  <div class="dynamic-salary-level-by-years d-flex align-items-center">
+    <h4 class="text-secondary">Динамика уровня зарплат по городам</h4>
+     <img src="{{ data.city_salary_chart.url }}" alt="Salary level" class="me-3" style="height: 400px;">
+  </div>
+  <div class="dynamic-salary-level-by-years d-flex align-items-center">
+    <h4 class="text-secondary">Динамика количества вакансий по городам</h4>
+    <img src="{{ data.city_vacancy_share_chart.url }}" alt="Count vacancies" class="me-3" style="height: 400px;">
+  </div>
+</div>
+{{ data.data | safe }}
+{% endfor %}
+{% endblock %}

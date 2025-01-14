@@ -1,0 +1,8 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+{% for desc in content %}
+{{ desc.description | safe }}
+<img src="{{ desc.file }}"  class="img-fluid rounded shadow">
+{% endfor %}
+{% endblock %}

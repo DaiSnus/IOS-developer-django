@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<h2 class="pb-4 text-center">ТОП-20 навыков для ios-разработчиков</h2>
+{% for skill in skills_analysis %}
+<div class="pricing-header p-3 pb-md-4 mx-auto text-center">
+  <div class="dynamic-salary-level-by-years d-flex align-items-center">
+    <h4 class="text-secondary">Динамика навыков по годам</h4>
+     <img src="{{ skill.skill_chart.url }}" alt="Dynamic skills" class="me-3" style="height: 400px;">
+  </div>
+</div>
+{{ skill.data | safe }}
+{% endfor %}
+{% endblock %}
